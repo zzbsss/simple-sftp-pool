@@ -37,6 +37,7 @@ public class SftpFactory extends BasePooledObjectFactory<ChannelSftp> {
             sshConfig.put("StrictHostKeyChecking", "no");
             sshSession.setConfig(sshConfig);
             sshSession.connect();
+            sshSession.setTimeout(properties.getTimeout());
             ChannelSftp channel = (ChannelSftp) sshSession.openChannel("sftp");
             channel.connect();
             return channel;

@@ -20,7 +20,7 @@ import org.springframework.context.annotation.Configuration;
  * sftp 配置
  */
 @Configuration
-@ConditionalOnProperty(prefix = "leaf.sftp.pool", name = "enabled", havingValue="true")
+@ConditionalOnProperty(prefix = "sftp.pool", name = "enabled", havingValue="true")
 @EnableConfigurationProperties(SftpProperties.class)
 public class SftpConfig {
 
