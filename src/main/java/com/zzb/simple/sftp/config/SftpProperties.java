@@ -31,12 +31,25 @@ public class SftpProperties {
      */
     private String password;
 
+    /**
+     * 连接sftp服务器，默认超时时间30000
+     */
+    private int timeout = 30000;
+
     private Pool pool = new Pool();
 
     public static class Pool extends GenericObjectPoolConfig<ChannelSftp> {
-
+        /**
+         * 最大连接数
+         */
         private int maxTotal = DEFAULT_MAX_TOTAL;
+        /**
+         * 最大空闲连接数
+         */
         private int maxIdle = DEFAULT_MAX_IDLE;
+        /**
+         * 最小空闲连接数
+         */
         private int minIdle = DEFAULT_MIN_IDLE;
 
         public Pool() {
@@ -107,5 +120,13 @@ public class SftpProperties {
 
     public void setPool(Pool pool) {
         this.pool = pool;
+    }
+
+    public int getTimeout() {
+        return timeout;
+    }
+
+    public void setTimeout(int timeout) {
+        this.timeout = timeout;
     }
 }

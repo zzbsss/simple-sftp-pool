@@ -108,6 +108,15 @@ public class SftpHelper {
     }
 
     /**
+     * 获取 连接对象 ChannelSftp
+     * @return
+     */
+    public static ChannelSftp getChannelSftp() {
+        return  sftpHelper.sftpPool.borrowObject();
+    }
+
+
+    /**
      * inputStream转byte数组
      *
      * @param inputStream 输入流对象
