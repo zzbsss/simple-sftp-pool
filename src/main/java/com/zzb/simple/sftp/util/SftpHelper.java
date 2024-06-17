@@ -115,6 +115,13 @@ public class SftpHelper {
         return  sftpHelper.sftpPool.borrowObject();
     }
 
+    /**
+     * 归还连接对象
+     * @param channelSftp
+     */
+    public static void returnObject(ChannelSftp channelSftp) {
+        sftpHelper.sftpPool.returnObject(channelSftp);
+    }
 
     /**
      * inputStream转byte数组
